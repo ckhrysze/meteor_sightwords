@@ -1,0 +1,68 @@
+/* CSS declarations go here */
+
+.carousel-inner {
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
+ul {
+    list-style: none;
+}
+
+.wordcheck {
+    float: left;
+    margin-right: 5px;
+}
+
+label {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.wordlist-container {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    padding-top: 0;
+}
+
+.kwordlist-container {
+    display: inline-block;
+    margin-right: 20px;
+    padding-top: 0;
+}
+
+.wordlist {
+    margin-top: 10px;
+}
+
+.list-title {
+    font-size: large;
+}
+
+.kindergartenWord {
+    float: left;
+}
+
+.wordSheet td {
+    margin: 0;
+    padding: 4px;
+    border: solid black 1px;
+    font-size: x-large;
+}
+
+td.spacer {
+    border: none;
+    padding: 10px;
+}
+
+table.flashCards {
+    width: 100%;
+}
+
+.flashCard {
+    text-align: center;
+    font-size: 4em;
+    padding: 1.5em;
+}

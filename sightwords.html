@@ -1,0 +1,34 @@
+<head>
+  <title>Sightwords</title>
+</head>
+
+<body>
+</body>
+
+
+<template name="wordSheets">
+  <table class="wordSheet">
+  {{#each sections}}
+    {{#each this}}
+    <tr>
+      {{#each this}}
+      <td>{{this}}</td>
+      {{/each}}
+    </tr>
+    {{/each}}
+    <tr><td class="spacer">&nbsp;</tr>
+  {{/each}}
+  </table>
+</template>
+
+<template name="flashCardsSheets">
+  <table class="flashCards">
+    {{#each selectedWords}}
+    <tr>
+      {{#each this}}
+      <td class="flashCard">{{this}}</td>
+      {{/each}}
+    </tr>
+    {{/each}}
+  </table>
+</template>

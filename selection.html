@@ -1,0 +1,116 @@
+<template name="wordSelection">
+  <div class="container-fluid">
+    {{> topbar }}
+
+    <div class="accordion" id="accordion2">
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+            Kindergarten Words
+          </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+          <div class="accordion-inner">
+            {{> kindergartenSelection}}
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+            First Grade Words
+          </a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            {{> firstGradeSelection}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+<template name="kindergartenSelection">
+  {{> kindergartenChecklist}}
+</template>
+
+<template name="kindergartenChecklist">
+  {{#each wordlist}}
+  <div class="kwordlist-container">
+    <ul>
+      {{#each this}}
+        <li>
+          <label>
+            <input id="k{{this}}" type="checkbox" value="{{this}}" />
+            {{this}}
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/each}}
+</template>
+
+<template name="firstGradeSelection">
+  {{> checklists}}
+</template>
+
+<template name="customAdditions">
+  <p>Custom</p>
+</template>
+
+<template name="topbar">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><a id="150words" href="#">150 Word Sheet</a></li>
+        <li><a id="flashCards" href="#">Flash Card Sheets</a></li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="checklists">
+  <div id="myCarousel" class="carousel slide" data-interval="false">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      {{#each checklistgroups}}
+        {{> checklistgroup}}
+      {{/each}}
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>
+</template>
+
+<template name="checklistgroup">
+  <div class="item">
+    {{#each this}}
+    <div class="wordlist-container">
+      <label>
+        <input id="list{{number}}" type="checkbox" class="wordListTitle" />
+        <span class="list-title">Word List {{number}}</span>
+      </label>
+      <ul class="wordlist">
+        {{#each words}}
+          <li>
+          <input id="chbx{{../number}}{{this}}" class="wordcheck" value="{{this}}" type="checkbox" />
+          <label for="chbx{{../number}}{{this}}">{{this}}</label>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+</template>

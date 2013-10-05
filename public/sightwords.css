@@ -25,6 +25,7 @@ label {
     margin-right: 50px;
     margin-top: 50px;
     padding-top: 0;
+    vertical-align: top;
 }
 
 .kwordlist-container {

@@ -16,31 +16,17 @@ if (Meteor.isClient) {
   };
 
   Template.checklists.checklistgroups = function() {
-    var sets = [
-      "the of and a to in is you that it he was for on are",
-      "as with his they I at be this have from or had one by word",
-      "but not what all were we when your can said there use an each which",
-      "she do how their if will up other about out many then them these so",
-      "some her would make like him into time has look two more write go see",
-      "number no way could people my than first water been call who oil now find",
-      "long down day did get come made may part over new sound take only little",
-      "work know place year live me back give most very after thing our just name",
-      "good sentence man think say great where help through much before line right too mean",
-      "old any same tell boy follow came want show also around form three small set",
-      "put end does another well large must big even such because turn here why ask",
-      "went men read need land different home us move try kind hand picture again change",
-      "off play spell air away animal house point page letter mother answer found study still"
-    ];
 
     var groups = new Array();
 
     var perPage = 4;
-    for (var i=0; i<sets.length/perPage; i++) {
+    for (var i=0; i<first_grade_words.length/perPage; i++) {
       groups[i] = new Array();
       for (var j=0; j<perPage; j++) {
         var index = i*perPage + j;
-        if (index < sets.length)
-          groups[i].push({"number" : index+1, "words" : sets[index].split(" ")});
+        if (index < first_grade_words.length)
+          groups[i].push({"display" : "Word List "+(index+1), "name" : index+1,
+                          "words" : first_grade_words[index].split(" ")});
       }
     }
 
@@ -65,6 +51,36 @@ if (Meteor.isClient) {
 
     return words;
   };
+
+  // {'display' : '', 'name' : '', 'words' : },
+  Template.requirementsSelection.requirementsLists = function() {
+    var numbers1 = [];
+    var numbers2 = [];
+    for (var i=1; i<=50; i++) { numbers1.push(i); }
+    for (var j=51; j<=100; j++) { numbers2.push(j); }
+
+    var data = [
+      {'display' : 'Upper Case', 'name' : 'upper', 'words' : upper_case_letters},
+      {'display' : 'Lower Case', 'name' : 'lower', 'words' : lower_case_letters},
+      {'display' : 'Numbers 1-50', 'name' : 'numbers1', 'words' : numbers1},
+      {'display' : 'Numbers 51-100', 'name' : 'numbers2', 'words' : numbers2},
+      {'display' : 'Kindergarten Overlap', 'name' : 'overlap', 'words' : kindergarten_non_overlap}
+    ];
+
+    return data;
+  };
+
+  Template.miscellaneousSelection.miscLists = function() {
+    var data = [
+      {'display' : 'Colors', 'name' : '', 'words' : color_words},
+      {'display' : 'Math Concepts', 'name' : '', 'words' : math_words},
+      {'display' : 'Months', 'name' : '', 'words' : month_words},
+      {'display' : 'Days', 'name' : '', 'words' : days_of_the_week}
+    ];
+
+    return data;    
+  };
+
 
   Template.wordSheets.sections = function() {
     var selectedWords = shuffle(getSelectedWords());

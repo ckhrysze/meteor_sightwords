@@ -1,3 +1,14 @@
+<template name="topbar">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><a id="150words" href="#">150 Word Sheet</a></li>
+        <li><a id="flashCards" href="#">Flash Card Sheets</a></li>
+      </ul>
+    </div>
+  </div>
+</template>
+
 <template name="wordSelection">
   <div class="container-fluid">
     {{> topbar }}
@@ -24,9 +35,35 @@
             First Grade Words
           </a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse in">
+        <div id="collapseTwo" class="accordion-body collapse">
           <div class="accordion-inner">
             {{> firstGradeSelection}}
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+            Requirements Lists
+          </a>
+        </div>
+        <div id="collapseThree" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            {{> requirementsSelection}}
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+            Miscellaneous Lists
+          </a>
+        </div>
+        <div id="collapseFour" class="accordion-body collapse">
+          <div class="accordion-inner">
+            {{> miscellaneousSelection}}
           </div>
         </div>
       </div>
@@ -61,21 +98,6 @@
   {{> checklists}}
 </template>
 
-<template name="customAdditions">
-  <p>Custom</p>
-</template>
-
-<template name="topbar">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <ul class="nav">
-        <li><a id="150words" href="#">150 Word Sheet</a></li>
-        <li><a id="flashCards" href="#">Flash Card Sheets</a></li>
-      </ul>
-    </div>
-  </div>
-</template>
-
 <template name="checklists">
   <div id="myCarousel" class="carousel slide" data-interval="false">
     <ol class="carousel-indicators">
@@ -100,18 +122,30 @@
     {{#each this}}
     <div class="wordlist-container">
       <label>
-        <input id="list{{number}}" type="checkbox" class="wordListTitle" />
-        <span class="list-title">Word List {{number}}</span>
+        <input id="list{{name}}" type="checkbox" class="wordListTitle" />
+        <span class="list-title">{{display}}</span>
       </label>
       <ul class="wordlist">
         {{#each words}}
           <li>
-          <input id="chbx{{../number}}{{this}}" class="wordcheck" value="{{this}}" type="checkbox" />
-          <label for="chbx{{../number}}{{this}}">{{this}}</label>
+          <input id="chbx{{../name}}{{this}}" class="wordcheck" value="{{this}}" type="checkbox" />
+          <label for="chbx{{../name}}{{this}}">{{this}}</label>
           </li>
         {{/each}}
       </ul>
     </div>
     {{/each}}
   </div>
+</template>
+
+<template name="requirementsSelection">
+  {{# with requirementsLists}}
+  {{> checklistgroup}}
+  {{/with}}
+</template>
+
+<template name="miscellaneousSelection">
+  {{# with miscLists}}
+  {{> checklistgroup}}
+  {{/with}}
 </template>

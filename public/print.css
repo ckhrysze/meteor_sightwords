@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+}
+
+.flashCard {
+    text-align: center;
+    font-size: 4em;
+    padding: 2em;
+    page-break-inside: avoid;
+}
+
+.flashCardRow:nth-of-type(4n) {
+  page-break-after: always;
+}
+
+.flashCardRow {
+    page-break-inside: avoid;
+}
+
+.wordSheet td {
+    margin: 0;
+    padding: 4px;
+    border: solid black 1px;
+    font-size: x-large;
+}
+
+td.spacer {
+    border: none;
+    padding: 10px;
+}

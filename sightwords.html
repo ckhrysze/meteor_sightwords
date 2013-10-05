@@ -1,5 +1,8 @@
 <head>
   <title>Sightwords</title>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="sightwords.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="print.css" />
 </head>
 
 <body>
@@ -24,7 +27,7 @@
 <template name="flashCardsSheets">
   <table class="flashCards">
     {{#each selectedWords}}
-    <tr>
+    <tr class="flashCardRow">
       {{#each this}}
       <td class="flashCard">{{this}}</td>
       {{/each}}

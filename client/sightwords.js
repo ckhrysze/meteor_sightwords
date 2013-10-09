@@ -75,7 +75,7 @@ Template.miscellaneousSelection.miscLists = function() {
     {'display' : 'Days', 'name' : 'days', 'words' : days_of_the_week}
   ];
 
-  return data;    
+  return data;
 };
 
 
@@ -138,7 +138,12 @@ Template.kindergartenChecklist.events = {
 Template.checklistgroup.events = {
   "change .wordcheck": selectWord,
   "change .wordListTitle": function(event) {
-    $(event.target).parents('.wordlist-container').find('input.wordcheck').click();
+    $(event.target).parents('.wordlist-container')
+      .find('input.wordcheck').each(function(i, input) {
+        if (input.checked != event.target.checked) {
+          input.click();
+        }
+      });
   }
 };
 
@@ -160,7 +165,7 @@ var SightwordRouter = Backbone.Router.extend({
   },
   main: function () {
     Session.set("selected", {});
-    
+
     swapBody(Meteor.render(function() {
       return Template.wordSelection();
     }));

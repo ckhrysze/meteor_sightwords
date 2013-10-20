@@ -78,14 +78,20 @@ Template.miscellaneousSelection.miscLists = function() {
   return data;
 };
 
+Template.firstGradeListSelection.firstGradeLists = function() {
+  var data = [];
+
+  return data;
+}
+
 
 Template.wordSheets.sections = function() {
   var selectedWords = shuffle(getSelectedWords());
   var words = [];
   var numWords = selectedWords.length;
 
-  var cols = 10;
-  var wordsInSection = 50;
+  var cols = 8;
+  var wordsInSection = 64;
   var rowsInSection = wordsInSection / cols;
   var sections = Math.ceil(numWords / wordsInSection);
 

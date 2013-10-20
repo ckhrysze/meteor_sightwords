@@ -23,7 +23,7 @@ this.first_grade_words = [
   "room knew since ever piece told usually didn't friend easy heard order red door sure",
   "become top ship across today during short better best however low hours black products happened",
   "whole measure remember early waves reached listen wind rock space covered fast several hold himself",
-  "toward five step morning passed vowel true hundred against pattern numeral table  north slowly money",
+  "toward five step morning passed vowel true hundred against pattern numeral table north slowly money",
   "map farm pulled draw voice seen cold cried plan notice south sing war ground fall",
   "king town I'll unit figure certain field travel wood fire upon done English road half",
   "ten fly gave box finally wait correct oh quickly person became show minutes strong verb",

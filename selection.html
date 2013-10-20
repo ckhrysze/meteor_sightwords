@@ -44,11 +44,24 @@
 
       <div class="accordion-group">
         <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-            Requirements Lists
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
+            First Grade Lists
           </a>
         </div>
         <div id="collapseThree" class="accordion-body collapse">
+          <div class="accordion-inner">
+            {{> firstGradeListSelection}}
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseFour">
+            Requirements Lists
+          </a>
+        </div>
+        <div id="collapseFour" class="accordion-body collapse">
           <div class="accordion-inner">
             {{> requirementsSelection}}
           </div>
@@ -57,11 +70,11 @@
 
       <div class="accordion-group">
         <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseFive">
             Miscellaneous Lists
           </a>
         </div>
-        <div id="collapseFour" class="accordion-body collapse">
+        <div id="collapseFive" class="accordion-body collapse">
           <div class="accordion-inner">
             {{> miscellaneousSelection}}
           </div>
@@ -96,6 +109,12 @@
 
 <template name="firstGradeSelection">
   {{> checklists}}
+</template>
+
+<template name="firstGradeListSelection">
+  {{# with firstGradeLists}}
+  {{> checklistgroup}}
+  {{/with}}
 </template>
 
 <template name="checklists">
